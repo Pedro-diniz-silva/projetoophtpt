@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Ophthal Hospital</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="Logo">Ophthal Hospital - Especializado</a>
+            <ul class="nav-menu">
+                <li class="nav-tem" ><a href="#" class="nav-link">Sobre</a></li>
+                <li class="nav-tem" ><a href="#" class="nav-link">Contato</a></li>
+                <li class="nav-tem" ><a href="#" class="nav-link">Resultado de exames</a></li>
+                <li class="nav-tem" ><a href="#" class="nav-link">Unidades</a></li>
+            </ul>
+            <div class="hamb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+            <img class="flex" src="img/imgprincipal.jpg" alt="">
+
+        <h1>SECTION FLEXBOX</h1>
+
+        <section class="flex">
+            <div>
+                <img src="img/teste2.jpg">
+                <p>Legenda</p>
+            </div>
+            <div>
+                <img src="img/teste2.jpg">
+                <p>Legenda</p>
+            </div>
+            <div>
+                <img src="img/teste2.jpg">
+                <p>Legenda</p>
+            </div>
+            </section>
+
+            <h1>SECTION GRID</h1>
+             
+            <section class="grid">
+            <div>
+                <img src="img/teste2.jpg">
+                <p>Legenda</p>
+            </div>
+            <div class="anuncio">
+                <img src="img/teste2.jpg">
+                <p>Convênios</p>
+            </div>
+        </section>
+    </main>
+    <script src="buttom.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: blue;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 34px;
+}
+
+.navbar > a {
+    font-size: 24px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    transition: 0.5s ease;
+}
+
+.nav-link:hover {
+    color: brown;
+}
+
+.hamb {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    margin: 5px auto;
+    background-color: rgb(255, 0, 0);
+    transition: all 0.3s ease-in-out;
+}
+
+main {
+    margin-bottom: 100px;
+}
+
+main > img {
+    padding-top: 6px;
+    width: 100%;
+}
+
+/* FLEX-BOX */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.flex {
+    display: flex; 
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+ 
+.flex > div {
+    flex: 1 1 200px;
+    margin: 6px
+
+}
+
+/* FLEX-BOX */
+
+/* CSS GRID */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+.grid > div:nth-child(n + 4) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.grid > div.anuncio {
+    grid-column: 1;
+    grid-row: 2 / 5;
+    border-top: 10px solid tomato;
+    display: block;
+}
+
+
+/* CSS GRID */
+
+@media(max-width: 768px) {
+    .hamb {
+        display: block;
+    }
+
+    .hamb.active .bar:nth-child(2) {
+        opacity: 0;
+
+    }
+
+    .hamb.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+
+    }
+
+    .hamb.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+
+    }
+
+    .navbar a {
+        text-align: center;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        border-radius: 0 0 20px 20px;
+        background-color: black;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        transition: 0.3s;
+
+    }
+
+    .nav-item {
+        margin: 16px 0;
+
+    }
+
+    .nav-menu.active {
+        left: 0;
+        gap: 7px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+}
+
+@media (max-width 600px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid > div:nth-child(n + 4) {
+        display: block;
+    }
+
+    .grid > div.anuncio {
+        grid-column: auto;
+        grid-row: auto;
+        order: -1
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const hamb = document.querySelector(".hamb");
+const navMenu = document.querySelector(".nav-menu");
+
+hamb.addEventListener("click", () => {
+    hamb.classList.toggle("active");
+    navMenu.classList.toggle("active");
+})
+
+
+
